@@ -16,10 +16,11 @@ test:
   database: backend_test
 
 production:
-  # основная база (primary)
   primary:
     url: <%= ENV["DATABASE_URL"] %>
-
-  # база для ActionCable (solid_cable) — используем ту же самую
   cable:
+    url: <%= ENV["DATABASE_URL"] %>
+  queue:
+    url: <%= ENV["DATABASE_URL"] %>
+  cache:
     url: <%= ENV["DATABASE_URL"] %>
