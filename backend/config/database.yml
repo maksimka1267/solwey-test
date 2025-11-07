@@ -16,5 +16,10 @@ test:
   database: backend_test
 
 production:
-  # В проде (Render) берём строку подключения из переменной окружения DATABASE_URL
-  url: <%= ENV["DATABASE_URL"] %>
+  # основная база (primary)
+  primary:
+    url: <%= ENV["DATABASE_URL"] %>
+
+  # база для ActionCable (solid_cable) — используем ту же самую
+  cable:
+    url: <%= ENV["DATABASE_URL"] %>
